@@ -410,7 +410,7 @@ const app = {
             return;
         }
 
-        document.getElementById('level-display').textContent = `Nível ${this.translateDiff(this.currentDifficulty)}`;
+
 
         // Update Title and Description
         document.getElementById('level-title').textContent = levelData.title || `Desafio ${this.currentLevelIndex + 1}`;

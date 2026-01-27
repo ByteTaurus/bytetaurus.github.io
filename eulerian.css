@@ -213,8 +213,61 @@ input[type="text"]:focus {
 }
 
 @media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
     #canvas-container {
         max-height: 50vh;
+        /* Increase space for controls */
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* Make controls a 2x2 grid for better touch targets */
+    .controls {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 8px 5px;
+        /* Tighter padding */
+        font-size: 0.75rem;
+        /* Smaller font */
+        margin: 0;
+        display: flex;
+        /* Flex to align icon and text */
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        /* Small gap between icon and text */
+        white-space: nowrap;
+        /* Prevent breaking if possible */
+    }
+
+    /* Game Header adjustments */
+    #level-title {
+        font-size: 1.4rem;
+    }
+
+    .game-info-bar {
+        font-size: 0.8rem;
+        flex-wrap: wrap;
+    }
+
+    .info-item {
+        margin: 5px;
     }
 }
 
