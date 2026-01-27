@@ -71,8 +71,8 @@
         <!-- Game Screen -->
         <div id="game-view" class="screen">
             <div class="game-header">
-                <h2 id="level-title" style="color: white; margin: 0;">Título do Nível</h2>
-                <p id="level-desc" style="color: #ccc; font-size: 0.9rem; margin-top: 5px;">Descrição do Nível</p>
+                <h2 id="level-title">Título do Nível</h2>
+                <p id="level-desc">Descrição do Nível</p>
             </div>
 
             <div class="game-info-bar">
@@ -88,9 +88,11 @@
             <div id="message-area" class="message-box" style="display:none;"></div>
 
             <div class="controls">
-                <button class="btn btn-secondary" onclick="app.resetLevel()">Reiniciar</button>
+                <button class="btn btn-secondary" onclick="app.resetLevel()">🔄 Reiniciar</button>
                 <button class="btn btn-warning" onclick="app.showHint()">💡 Dica</button>
-                <button class="btn btn-secondary" onclick="app.returnToMenu()">Menu</button>
+                <button class="btn btn-secondary" onclick="app.promptSolution()"
+                    style="background:var(--secondary); border:none;">🤖 Resolver</button>
+                <button class="btn btn-secondary" onclick="app.returnToMenu()">🏠 Menu</button>
             </div>
         </div>
     </div>

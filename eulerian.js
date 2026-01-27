@@ -540,6 +540,7 @@ const app = {
 
     nextLevel: function () {
         document.getElementById('modal').classList.remove('open');
+        this.resetLevel(); // Clean state
         this.showScreen('login-view');
         this.currentUser = '';
         document.getElementById('student-name').value = '';
@@ -610,6 +611,124 @@ const app = {
         }
     },
 
+    promptSolution: function () {
+        const input = prompt("Digite a senha de instrutor para resolver:");
+        if (input === "instrutoratabata2026") {
+            this.solveLevel();
+        } else if (input !== null) {
+            alert("Senha incorreta.");
+        }
+    },
+
+    solveLevel: function () {
+        this.resetLevel();
+
+        const degrees = new Array(this.nodes.length).fill(0);
+        this.edges.forEach(e => {
+            degrees[e[0]]++;
+            degrees[e[1]]++;
+        });
+
+        // Validation: Euler Path requires 0 or 2 odd nodes.
+        const oddNodes = degrees.map((d, i) => i).filter(i => degrees[i] % 2 !== 0);
+
+        if (oddNodes.length !== 0 && oddNodes.length !== 2) {
+            alert(`ERRO: Este grafo é matematicamente impossível de resolver! (Tem ${oddNodes.length} nós de grau ímpar).`);
+            return;
+        }
+
+        // Start Node: Odd degree or 0
+        let startNode = 0;
+        if (oddNodes.length > 0) startNode = oddNodes[0];
+
+        // Adjacency List
+        const adj = Array.from({ length: this.nodes.length }, () => []);
+        this.edges.forEach((e, i) => {
+            adj[e[0]].push({ to: e[1], id: i });
+            adj[e[1]].push({ to: e[0], id: i });
+        });
+
+        const visitedEdgeIds = new Set();
+
+        // Robust Hierholzer's Algorithm (Iterative)
+        const solveHierholzer = (start) => {
+            const stack = [start];
+            const path = [];
+
+            while (stack.length > 0) {
+                const u = stack[stack.length - 1]; // Peak
+
+                let hasUnused = false;
+                // Find first unused edge
+                for (let i = 0; i < adj[u].length; i++) {
+                    const e = adj[u][i];
+                    if (!visitedEdgeIds.has(e.id)) {
+                        visitedEdgeIds.add(e.id);
+                        stack.push(e.to);
+                        hasUnused = true;
+                        break; // Push and continue traversal
+                    }
+                }
+
+                if (!hasUnused) {
+                    path.push(stack.pop());
+                }
+            }
+            return path;
+        };
+
+        const path = solveHierholzer(startNode);
+
+        // Path is built in reverse
+        this.animateSolution(path.reverse());
+    },
+
+    animateSolution: function (nodePath) {
+        if (nodePath.length < 2) return;
+
+        const canvas = document.getElementById('game-canvas');
+        canvas.style.pointerEvents = 'none'; // Lock input
+
+        const originalName = this.currentUser;
+        this.currentUser = "Computador (IA)";
+        document.getElementById('player-display').textContent = `Aluno(a): ${this.currentUser}`;
+
+        let i = 0;
+        this.currentNode = nodePath[0];
+        this.pathHistory.push(this.currentNode);
+        this.draw();
+
+        const step = () => {
+            if (i >= nodePath.length - 1) {
+                canvas.style.pointerEvents = 'auto';
+                this.currentUser = originalName; // Restore for win modal
+                this.checkWinCondition();
+                return;
+            }
+
+            const u = nodePath[i];
+            const v = nodePath[i + 1];
+
+            const edgeIdx = this.edges.findIndex((e, idx) =>
+                !this.visitedEdges.has(idx) &&
+                ((e[0] === u && e[1] === v) || (e[0] === v && e[1] === u))
+            );
+
+            if (edgeIdx !== -1) {
+                this.visitedEdges.add(edgeIdx);
+                this.currentNode = v;
+                this.pathHistory.push(v);
+                this.updateStats();
+                this.draw();
+            }
+
+            i++;
+            setTimeout(step, 800);
+        };
+
+        setTimeout(step, 1000);
+    },
+
     showMessage: function (text, type = 'info') {
         const msgBox = document.getElementById('message-area');
         msgBox.innerHTML = text;
@@ -677,19 +796,27 @@ const app = {
 // Nodes are [x, y] in 0-1 range.
 // Data for Levels
 // Nodes are [x, y] in 0-1 range.
+// Data for Levels
+// Nodes are [x, y] in 0-1 range.
 const LEVEL_DATA = {
     easy: [],
     medium: [],
     hard: [
         {
-            title: "O Desafio Final",
-            description: "Um teste de paciência e lógica. Encontre o caminho único.",
-            hint: "Verifique os graus dos nós. Lembre-se: 0 ou 2 nós de grau ímpar permitem caminho.",
-            nodes: [[0.5, 0.15], [0.85, 0.35], [0.85, 0.75], [0.5, 0.95], [0.15, 0.75], [0.15, 0.35], [0.5, 0.5]],
+            title: "A Coroa Cruzada",
+            description: "Muitas conexões, mas apenas um caminho. Atenção aos nós das pontas!",
+            hint: "Dica: Apenas dois nós têm número ímpar de arestas (0 e 3 na base). O caminho deve começar em um e terminar no outro.",
+            nodes: [
+                [0.1, 0.8], [0.35, 0.8], [0.65, 0.8], [0.9, 0.8], // Base 0,1,2,3
+                [0.2, 0.2], [0.5, 0.2], [0.8, 0.2]  // Top 4,5,6
+            ],
             edges: [
-                [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0], // Outer Hexagon
-                [0, 6], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6], // Spokes to center
-                [0, 2], [2, 4], [4, 0] // Inner Triangle skipping 1
+                [0, 1], [1, 2], [2, 3], // Base Line
+                [4, 5], [5, 6], // Top Line
+                [0, 4], [4, 1], // Left zig
+                [1, 5], [5, 2], // Mid zig
+                [2, 6], [6, 3], // Right zig
+                [0, 6], [3, 4] // Big Crosses (0-6, 3-4)
             ]
         }
     ]
