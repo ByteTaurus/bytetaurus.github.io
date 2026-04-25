@@ -958,14 +958,12 @@ body[data-theme="dark"] .dashboard-module-row {
     justify-content: center;
   }
 
-  /* Chips: só aluno e acertos; timer e etapa fora */
+  /* Chips: só aluno, timer e acertos; etapa fora */
   .quiz-topbar {
     gap: 0.35rem;
-    flex-wrap: nowrap;
-    overflow: hidden;
+    flex-wrap: wrap;
   }
 
-  #timerChip,
   #stepChip {
     display: none;
   }
