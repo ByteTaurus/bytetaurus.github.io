@@ -912,9 +912,77 @@ body[data-theme="dark"] .dashboard-module-row {
   }
 }
 
-@media (max-width: 720px) {
-  .screen-grid,
-  .question-layout {
+/* ─── Mobile: app-like layout ─── */
+@media (max-width: 800px) {
+
+  /* Oculta hero e rodapé — o card é o app */
+  .hero,
+  .dev-credit {
+    display: none;
+  }
+
+  /* Shell sem padding — o card ocupa toda a tela */
+  .app-shell {
+    padding: 0;
+    gap: 0;
+    min-height: 100dvh;
+    align-content: start;
+  }
+
+  /* Quiz card vira tela cheia estilo app */
+  .quiz-card {
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    background: var(--card);
+    min-height: 100dvh;
+    padding: 0.75rem 0.9rem 1.2rem;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Barra de ferramentas: ícones apenas */
+  .quiz-tools {
+    gap: 0.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .quiz-tools button > span:not(.icon) {
+    display: none;
+  }
+
+  .theme-toggle {
+    padding: 0.55rem 0.7rem;
+    min-width: 2.6rem;
+    justify-content: center;
+  }
+
+  /* Chips: só aluno e acertos; timer e etapa fora */
+  .quiz-topbar {
+    gap: 0.35rem;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  #timerChip,
+  #stepChip {
+    display: none;
+  }
+
+  .chip {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  /* Progress bar mais próxima */
+  .progress-track {
+    margin: 0.55rem 0 0.75rem;
+  }
+
+  /* Grades de uma coluna */
+  .screen-grid {
     grid-template-columns: 1fr;
   }
 
@@ -926,14 +994,68 @@ body[data-theme="dark"] .dashboard-module-row {
     grid-template-columns: 1fr;
   }
 
-  .theme-question-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* ─── Tela de Introdução ─── */
+  .intro-actions {
+    flex-direction: column;
+  }
+
+  .intro-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ─── Tela de Questão ─── */
+  /* O question-layout vira coluna: painel de questão PRIMEIRO, mapa DEPOIS */
+  .question-layout {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .question-panel {
+    order: 1;
   }
 
   .question-map {
+    order: 2;
     position: static;
   }
 
+  /* Legenda e mapa de temas colapsados em mobile: mostra só o tema atual */
+  .map-legend {
+    display: none;
+  }
+
+  .question-map > .question-map-header h3 {
+    font-size: 0.9rem;
+  }
+
+  /* Theme sections: esconde todas exceto a ativa */
+  .theme-section:not(.active) {
+    display: none;
+  }
+
+  .theme-question-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  /* Toolbar interna da questão: compactar */
+  .question-toolbar {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .toolbar-actions {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .toolbar-actions .btn {
+    flex: 1 1 auto;
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+
+  /* Botões de ação (próxima/verificar) ocupam toda a largura */
   .quiz-actions {
     justify-content: stretch;
   }
@@ -948,42 +1070,10 @@ body[data-theme="dark"] .dashboard-module-row {
 
   .answer-btn {
     align-items: flex-start;
+    padding: 0.85rem 0.85rem;
   }
 
-  /* Topbar: esconde chips menos importantes para não engordar */
-  #timerChip,
-  #stepChip {
-    display: none;
-  }
-
-  .quiz-topbar {
-    gap: 0.4rem;
-  }
-
-  /* Ferramentas: oculta rótulo de texto, exibe só ícone */
-  .quiz-tools button > span:not(.icon) {
-    display: none;
-  }
-
-  .quiz-tools {
-    gap: 0.4rem;
-  }
-
-  /* Toolbar da questão: empilha em coluna */
-  .question-toolbar {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .toolbar-actions {
-    width: 100%;
-  }
-
-  .toolbar-actions .btn {
-    flex: 1 1 auto;
-  }
-
-  /* Dashboard: nome do módulo não quebra layout */
+  /* Dashboard por módulo: nome não estoura */
   .dashboard-module-name {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -994,24 +1084,10 @@ body[data-theme="dark"] .dashboard-module-row {
   .dashboard-module-row {
     gap: 0.5rem;
   }
-
-  /* Intro actions: empilha botões */
-  .intro-actions {
-    flex-direction: column;
-  }
-
-  .intro-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
 }
 
 @media (max-width: 400px) {
   .numerica-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  h1 {
-    font-size: 1.6rem;
   }
 }
