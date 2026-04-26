@@ -382,128 +382,56 @@ const quizModules = {
     ]
   },
   armas: {
-    title: "Controle de Armas e Municoes",
-    description: "Normas sobre registro, aquisicao, coletes e limites para policial militar.",
+    title: "Legislacao de Armas e Normas Institucionais",
+    description: "Portaria 167 - COLOG/2024, Portaria Conjunta COLOG 01/2024 e normas institucionais correlatas.",
     questions: [
       {
-        text: "Qual orgao passou a ser competente para o registro de arma de fogo?",
-        answers: ["Exercito Brasileiro", "Policia Militar", "Policia Federal", "Guarda Municipal", "Ministerio da Defesa"],
-        correctIndex: 2,
-        reference: "O registro de arma de fogo passa a ser de competencia para a Policia Federal."
-      },
-      {
-        text: "Qual setor da Unidade deve dar o parecer obrigatorio para a aquisicao de arma de fogo pelo policial?",
-        answers: ["Secao de Logistica", "Secao de Assuntos Internos (AJD)", "Tesouraria", "Comando Geral", "Almoxarifado"],
+        text: "De acordo com a Portaria 167 - COLOG/2024, qual o numero maximo de armas de fogo que os integrantes das Policias Militares (da ativa e da inatividade), CBM e GSI/PR podem adquirir para uso pessoal?",
+        answers: ["2 armas.", "4 armas.", "6 armas.", "8 armas."],
         correctIndex: 1,
-        reference: "E obrigatorio o parecer da Secao de Assuntos Internos (AJD) da Unidade para o estudo da autorizacao."
+        reference: "Gabarito: B. O limite previsto e de 4 armas para uso pessoal."
       },
       {
-        text: "Quantas armas de fogo, no total, um integrante da PM (ativa ou inatividade) pode adquirir segundo a norma?",
-        answers: ["2 armas", "3 armas", "4 armas", "6 armas", "10 armas"],
+        text: "De acordo com o Art. 2o, §7o, da Portaria 167 - COLOG/2024, assinale o orgao responsavel que podera autorizar os policiais militares, em carater excepcional, a aquisicao de armas de fogo em quantidade superior ao limite estabelecido:",
+        answers: ["Secretaria de Seguranca Publica (SSP).", "Comandante-Geral da respectiva instituicao.", "Comando Logistico (COLOG).", "Diretoria de Fiscalizacao de Produtos Controlados (DFPC)."],
         correctIndex: 2,
-        reference: "Os integrantes (da ativa e na inatividade) das PM poderao adquirir ate 4 (quatro) armas de fogo."
+        reference: "Gabarito: C. A autorizacao excepcional e atribuida ao COLOG."
       },
       {
-        text: "Das armas permitidas para o PM, quantas podem ser de uso restrito?",
-        answers: ["Nenhuma", "1 arma", "2 armas", "3 armas", "Todas as 4"],
-        correctIndex: 2,
-        reference: "Das armas permitidas, 2 (duas) poderao ser de uso restrito."
-      },
-      {
-        text: "Qual e o limite de arma longa (alma lisa ou raiada) que o integrante em servico ativo pode adquirir?",
-        answers: ["Nenhuma", "Ate 1 arma", "Ate 2 armas", "Ate 3 armas", "Nao ha limite"],
+        text: "De acordo com o Art. 35 da Portaria 167 - COLOG/2024, na hipotese de falecimento ou interdicao do proprietario de arma de fogo, quem devera providenciar a transferencia de propriedade da arma ou a entrega da arma a Policia Federal?",
+        answers: ["O Comandante da Unidade onde o militar servia.", "O administrador da heranca ou o curador.", "O conjuge sobrevivente, exclusivamente.", "O orgao de inteligencia da corporacao."],
         correctIndex: 1,
-        reference: "Os integrantes em servico ativo poderao adquirir ate 1 (uma) arma longa de alma lisa ou raiada."
+        reference: "Gabarito: B. A responsabilidade recai sobre o administrador da heranca ou curador."
       },
       {
-        text: "O que acontece com a posse da arma adquirida em servico ativo quando o policial passa para a inatividade?",
-        answers: ["A posse das armas e assegurada na inatividade", "O policial deve devolver as armas ao Estado", "As armas devem ser vendidas obrigatoriamente", "A posse e cancelada automaticamente", "O policial precisa refazer todos os testes de tiro"],
-        correctIndex: 0,
-        reference: "A posse dessas armas fica assegurada na inatividade."
-      },
-      {
-        text: "Em qual situacao a arma de fogo de um PM sera apreendida imediatamente?",
-        answers: ["Se o policial esquecer o coldre", "Em caso de promocao por bravura", "Em casos de violencia domestica e familiar contra a mulher", "Quando o policial viajar de ferias", "Se a arma estiver suja"],
-        correctIndex: 2,
-        reference: "Nos casos de acao penal ou inquerito que envolva violencia domestica contra a mulher, a arma sera apreendida imediatamente."
-      },
-      {
-        text: "Qual destes itens NAO e mais controlado pelo Exercito, segundo o arquivo?",
-        answers: ["Granadas", "Fuzis de precisao", "Mira laser e Red-Dot", "Municao de tanque", "Explosivos plasticos"],
-        correctIndex: 2,
-        reference: "Exemplos de itens nao controlados incluem mira laser, luneta, mira telescopica e Red-Dot."
-      },
-      {
-        text: "Sobre o uso de colete a prova de balas, qual e a regra para o servico?",
-        answers: ["E obrigatorio usar colete particular", "Nao e permitido ao policial militar utilizar colete particular em servico", "O colete e opcional em dias de calor", "Pode-se usar qualquer colete comprado na internet", "O colete so deve ser usado em operacoes especiais"],
+        text: "De acordo com a Portaria Conjunta COLOG no 01/2024, em qual situacao o limite de armas de fogo de uso restrito podera ser ultrapassado pelos integrantes dos orgaos e instituicoes de que trata o Art. 34 do Decreto no 9.847/2019?",
+        answers: ["Quando o militar for promovido ao oficialato.", "Transferencia de propriedade por heranca, legado ou interdicao do proprietario.", "Mediante comprovacao de ameaca a integridade fisica.", "Para instrutores de tiro devidamente certificados."],
         correctIndex: 1,
-        reference: "Nao e permitido ao policial militar utilizar colete particular em servico."
+        reference: "Gabarito: B. O excesso e admitido nessa hipotese de transferencia de propriedade."
       },
       {
-        text: "Quais niveis de colete sao considerados permitidos?",
-        answers: ["I, IIA, II e IIIA", "III e IV", "Apenas o nivel I", "Todos os niveis sao permitidos", "Niveis V e VI"],
-        correctIndex: 0,
-        reference: "Colete permitido: I, IIA, II e IIIA. Colete restrito: III e IV."
-      },
-      {
-        text: "Como deve ser feita a destruicao de um colete a prova de balas fabricado apenas em aramida?",
-        answers: ["Jogando no lixo comum", "Enterrando em local seco", "Por incineracao", "Por submersao em agua", "Desmontando as placas manualmente"],
+        text: "Conforme Art. 1o da Portaria PMERJ no 254/2005 (IR-22), para o estudo da autorizacao de aquisicao de arma de fogo, de qual secao e obrigatorio o parecer para analisar a situacao judiciaria e disciplinar do requerente?",
+        answers: ["P/1 (Secao de Pessoal).", "P/2 (Secao de Inteligencia).", "Secao de Assuntos Internos (atual Assessoria de Justica e Disciplina - AJD).", "Centro de Suprimento e Manutencao de Armamento e Municao (CSM-AM)."],
         correctIndex: 2,
-        reference: "No caso de colete fabricado apenas em aramida, a destruicao deve ser por incineracao."
+        reference: "Gabarito: C. O parecer obrigatorio e da Secao de Assuntos Internos/AJD."
       },
       {
-        text: "O que deve ser feito com um colete que foi alvejado por um disparo?",
-        answers: ["Deve ser remendado e reutilizado", "Deve ser doado para treinamento", "Pode ser usado por mais um ano", "Nao podera ser utilizado, devendo ser destruido", "Deve ser devolvido ao fabricante para limpeza"],
+        text: "De acordo com a legislacao vigente, assinale abaixo o item que NAO e mais classificado como Produto Controlado pelo Exercito (PCE):",
+        answers: ["Granadas de fumaca.", "Colete balistico de nivel III.", "Luneta (Mira telescopica).", "Silenciadores."],
+        correctIndex: 2,
+        reference: "Gabarito: C. Luneta/mira telescopica nao permanece classificada como PCE na referencia adotada no questionario."
+      },
+      {
+        text: "Qual das opcoes de nomenclatura de calibre de arma de fogo abaixo NAO pertence a familia do calibre .38 SPL (apresentando dimensoes e caracteristicas de projeto distintas)?",
+        answers: [".357 Magnum.", ".38 Long Colt.", ".45 ACP.", ".38 Short Colt."],
+        correctIndex: 2,
+        reference: "Gabarito: C. O .45 ACP nao pertence a familia do .38 SPL."
+      },
+      {
+        text: "Assinale a alternativa que representa um armamento classificado como 'nao portatil', que devido ao seu peso e dimensoes precisa ser transportado ou usado com auxilio de tripe (fixo ou movel) ou veiculo automotor para estabilizacao do tiro:",
+        answers: ["Carabina de repeticao.", "Pistola semiautomatica.", "Fuzil de precisao (Sniper).", "Metralhadora."],
         correctIndex: 3,
-        reference: "Colete alvejado por disparo nao podera ser utilizado e deve ser destruido."
-      },
-      {
-        text: "Alem da incineracao, qual outro metodo e citado para a destruicao de coletes?",
-        answers: ["Trituracao industrial", "Descarte quimico", "Picotamento", "Explosao controlada", "Amassamento por prensa"],
-        correctIndex: 2,
-        reference: "A destruicao do colete a prova de balas tambem podera ser feita por picotamento."
-      },
-      {
-        text: "Em que situacao o limite de 4 armas de fogo pode ser ultrapassado?",
-        answers: ["Se o policial for promovido a Oficial", "Se o policial ganhar um sorteio", "Em caso de transferencia por heranca ou legado", "Se o policial mudar de cidade", "Nunca pode ser ultrapassado"],
-        correctIndex: 2,
-        reference: "O limite podera ser ultrapassado em transferencia de propriedade por heranca ou legado."
-      },
-      {
-        text: "O que acontece se o registro da arma de fogo for indeferido?",
-        answers: ["O policial perde o dinheiro e a arma fica com o Estado", "O policial e preso imediatamente", "Adquirente e fornecedor devem executar o distrato da compra", "A arma e enviada para destruicao", "O policial pode tentar novamente apos 24 horas"],
-        correctIndex: 2,
-        reference: "No indeferimento do registro, cabem ao adquirente e ao fornecedor as medidas administrativas para execucao do distrato."
-      },
-      {
-        text: "Quem pode autorizar a aquisicao de armas em quantidade superior ao limite, em carater excepcional?",
-        answers: ["O Prefeito da cidade", "O Delegado da Policia Federal", "O Comando (desde que justificado)", "O vendedor da loja de armas", "O Juiz de paz"],
-        correctIndex: 2,
-        reference: "Pode ser autorizada aquisicao em quantidade superior pelo Comando, desde que haja justificativa."
-      },
-      {
-        text: "Qual destes calibres e citado como nao controlado (exemplo da familia .38)?",
-        answers: [".50 BMG", "7.62mm", ".380 ACP", "5.56mm", ".40 S&W"],
-        correctIndex: 2,
-        reference: "O .380 ACP e citado como um dos exemplos de itens nao controlados pelo Exercito."
-      },
-      {
-        text: "O nivel de protecao de colete III e IV e classificado como:",
-        answers: ["Permitido", "Restrito", "Obsoleto", "Esportivo", "Civil"],
-        correctIndex: 1,
-        reference: "Colete restrito: niveis III e IV."
-      },
-      {
-        text: "Por que a Secao de Assuntos Internos (AJD) deve dar o parecer?",
-        answers: ["Porque eles controlam o estoque de municao", "Porque eles cuidam da limpeza das armas", "Porque detem o controle da situacao judiciaria do policial militar", "Porque eles avaliam o desempenho fisico do PM", "Porque eles decidem o modelo da arma"],
-        correctIndex: 2,
-        reference: "A secao detem o controle da situacao judiciaria do policial militar da Unidade."
-      },
-      {
-        text: "No caso de interdicao do proprietario anterior, o que pode ocorrer com o limite de armas?",
-        answers: ["O limite e reduzido para zero", "As armas sao confiscadas", "O limite pode ser ultrapassado pela transferencia de propriedade", "O sucessor deve pagar uma multa", "As armas devem ser destruidas por picotamento"],
-        correctIndex: 2,
-        reference: "O limite pode ser ultrapassado em transferencia de propriedade por interdicao do proprietario anterior."
+        reference: "Gabarito: D. Metralhadora e armamento classificado como nao portatil."
       }
     ]
   },
